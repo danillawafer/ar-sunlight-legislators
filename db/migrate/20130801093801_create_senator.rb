@@ -2,7 +2,7 @@
 
 class CreateSenator < ActiveRecord::Migration
   def change
-    create_table :senators do |t|
+    create_table :congress_members do |t|
       t.string :title
       t.string :firstname
       t.string :middlename
