@@ -1,11 +1,17 @@
 require 'rake'
 require 'rspec/core/rake_task'
 require_relative 'db/config'
+require_relative 'lib/sunlight_legislators_importer.rb'
 
 
 desc "create the database"
 task "db:create" do
   touch 'db/ar-sunlight-legislators.sqlite3'
+end
+
+desc "imports data to the database from a csv"
+task "db:import" do
+  SunlightLegislatorsImporter.import('db/data/legislators.csv')
 end
 
 desc "drop the database"
